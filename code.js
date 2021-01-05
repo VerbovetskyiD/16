@@ -9,12 +9,12 @@ class Student {
         this.dateOfBirth = studentDateOfBirth;
     }
 
-    #arrIndexCheck(arr) {
-        return arr.findIndex( (el) => el === undefined);
+    static getAverage(arr) {
+        return arr.reduce( (acc, el) => acc + el ) / arr.length;
     }
 
-    #getAverage(arr) {
-        return arr.reduce( (acc, el) => acc + el ) / arr.length;
+    #arrIndexCheck(arr) {
+        return arr.findIndex( (el) => el === undefined);
     }
 
     getAge() {
@@ -41,11 +41,11 @@ class Student {
     }
 
     averageMark() {
-        return this.#getAverage(this.#markArr);
+        return Student.getAverage(this.#markArr);
     }
 
     averagePresence() {
-        return this.#getAverage(this.#presentArr);
+        return Student.getAverage(this.#presentArr);
     }
 
     summary() {
